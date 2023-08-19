@@ -1,0 +1,32 @@
+.appContainer{
+    min-height: 100vh;
+    padding-top: 40px;
+    padding: 30px;
+}
+.appContent{
+    margin-top: 20px;
+    padding: 30px;
+}
+.textCentered{
+    text-align: center;
+}
+.welcomeContainer{
+    margin: 0 auto;
+}
+.shadow{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 2px;
+}
+.peaks{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    object-fit: contain;
+}
+.special{
+    overflow: visible;
+}
+.leetcodeData{
+    display: flex;
+    flex-direction: column;
+}
