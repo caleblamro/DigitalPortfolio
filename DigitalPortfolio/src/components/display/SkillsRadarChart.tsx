@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
-import "./SkillChart.css";
+import "./Display.css";
 import { Theme } from '../../theme/ThemeContext';
 
 const data = [

@@ -5,6 +5,9 @@
 }
 .appContent{
     margin-top: 20px;
+    flex-direction: column;
+    display: flex;
+    gap: 3px;
     padding: 30px;
 }
 .textCentered{
@@ -29,4 +32,9 @@
 .leetcodeData{
     display: flex;
     flex-direction: column;
+}
+.projectsContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }

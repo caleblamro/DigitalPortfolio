@@ -1,7 +1,7 @@
 import { PureComponent } from 'react';
-import { PieChart, Pie, Sector, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Sector } from 'recharts';
 import { Theme } from '../../theme/ThemeContext';
-import "./SkillChart.css";
+import "./Display.css";
 
 export interface LeetCodeData {
     status: "success";

@@ -44,11 +44,11 @@ export const Colors = {
 } as const;
 
 const DarkPalette:Palette = {
-    text: "#D8DEE9",
+    text: "#5E81AC",
     background: "#2E3440",
     primary: "#8FBCBB",
     secondary: "#D8DEE9",
-    accent: "#5E81AC",
+    accent: "#26374b",
     alert: {
         success: Colors.Nord14,
         error: Colors.Nord11,

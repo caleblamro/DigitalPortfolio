@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { LeetCodeData } from './LeetCodeChart';
 import { Theme } from '../../theme/ThemeContext';
-import "./SkillChart.css";
-import { Select, ConfigProvider, DatePicker } from 'antd';
+import "./Display.css";
+import { Select, ConfigProvider, theme } from 'antd';
+const antdTheme = theme;
 import * as dayjs from 'dayjs';
 
 interface LeetCodeSubmissionsChartProps {
@@ -40,7 +41,7 @@ const LeetCodeSubmissionsChart: React.FC<LeetCodeSubmissionsChartProps> = ({ lee
         });
 
         setAvailableMonths(uniqueMonths);
-        setSelectedMonth(uniqueMonths[uniqueMonths.length - 1]);
+        setSelectedMonth("2022-10");
     }, [leetCodeData]);
 
     useEffect(() => {
@@ -81,8 +82,11 @@ const LeetCodeSubmissionsChart: React.FC<LeetCodeSubmissionsChartProps> = ({ lee
                 </LineChart>
             </ResponsiveContainer>
             <div className='monthSelectContainer' style={{ margin: '16px 0' }}>
-                <ConfigProvider theme={{token: { colorPrimary: theme.palette.primary, colorBgContainer: theme.palette.background, fontFamily: 'AnonymousPro' }}}>
-                    <Select value={selectedMonth} onChange={e => setSelectedMonth(e)} options={availableMonths.map((month) => {
+                <ConfigProvider theme={{algorithm: antdTheme.darkAlgorithm, token: { colorPrimary: theme.palette.primary, colorBgContainer: theme.palette.alert.info, colorBorder: theme.palette.accent, controlOutline: theme.palette.alert.info, fontFamily: 'AnonymousPro', borderRadius: 2 }}}>
+                    <Select value={selectedMonth} onChange={e => { 
+                        console.log(e);
+                        setSelectedMonth(e);
+                    }} options={availableMonths.map((month) => {
                         return { label: formatMonthYear(month), value: month }
                     })} />
                 </ConfigProvider>

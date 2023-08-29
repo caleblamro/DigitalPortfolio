@@ -51,7 +51,7 @@ export const Text = (props:TextProps) => {
                 newStyles = mergeStylesInOrder(newStyles, {fontSize: "0.875rem"});
                 break;
             case TextType.SUB_TEXT:
-                newStyles = mergeStylesInOrder(newStyles, {fontSize: "0.5rem"});
+                newStyles = mergeStylesInOrder(newStyles, {fontSize: "0.75rem"});
                 break;
         }
         if(bold) newStyles = mergeStylesInOrder(newStyles, {fontWeight: 600});
@@ -64,7 +64,7 @@ export const Text = (props:TextProps) => {
     }, [props]);
 
     return(
-        <p className={className?`text ${className}`:"text"} style={{...textStyles, ...style, color: color, margin: 0}}>
+        <p className={className?`text ${className}`:"text"} style={{...textStyles, ...style, color: color, margin: 0, wordWrap: "break-word", ...{ ...props.style }}}>
             {content}
         </p>
     )

@@ -7,8 +7,14 @@ import TypingText from './components/animation/TypedText';
 import './App.css';
 import LeetCodeChart, { LeetCodeData } from './components/display/LeetCodeChart';
 import LeetCodeSubmissionsChart from './components/display/LeetCodeSubmissionsChart';
-import FadeInOut from './components/animation/FadeInOut';
+// import FadeInOut from './components/animation/FadeInOut';
+import { BiLogoAws, BiLogoJava, BiLogoReact, BiLogoTypescript } from 'react-icons/bi';
+import { TbSql } from 'react-icons/tb'; 
+import { RiOpenaiFill } from 'react-icons/ri';
 import SkillsRadarChart from './components/display/SkillsRadarChart';
+import Resources from './components/display/Resources';
+import ProjectCard from './components/display/ProjectCard';
+
 
 export const ThemeContext = React.createContext<Theme>(tokens(ThemeMode.LIGHT));
 
@@ -51,13 +57,104 @@ function App() {
     const scaleVariants = {
         initial: { scale: 0 },
         animate: { scale: 1, transition: { type: "spring", stiffness: 260, damping: 20 } },
-        // Adjust the stiffness and damping values as needed to get the desired spring effect
+        // Adjust the stiffness and damping values as need{{{{{{{{{{{{{ed to get the desired spring effect
     };
+
+    const PROJECTS = [
+        {
+            title: "Online Provisioning Forms",
+            description: "Working closely with the Enterprise Applications team at Veritas Technologies, I was tasked with creating an application that sets the stage for multiple majors process transformations.",
+            git: "Proprietary",
+            restricted: true,
+            skills: [
+                {
+                    name: "Java",
+                    icon: <BiLogoJava style={{fontSize: '48px', color: theme.palette.primary}} />
+                },
+                {
+                    name: "ReactJS",
+                    icon: <BiLogoReact style={{fontSize: '48px', color: theme.palette.primary}} />
+                },
+                
+                {
+                    name: "SQL",
+                    icon: <TbSql style={{fontSize: '48px', color: theme.palette.primary}} />
+                }
+            ]
+        },
+        {
+            title: "AGILE Management Application (EffortLogger)",
+            git: "EffortLogger Repo",
+            repo: "https://github.com/caleblamro/EffortLogger_M18",
+            description: "Studying the AGILE methodology during my CSE 360 course, students were tasked to team up with 4-5 other classmates and develop an application and deliver on the stakeholder requirements outlined in the formal documents for the proposal.",
+            restricted: false,
+            skills: [
+                {
+                    name: "Java",
+                    icon: <BiLogoJava style={{fontSize: '48px', color: theme.palette.primary}} />
+                },
+                {
+                    name: "SQL",
+                    icon: <TbSql style={{fontSize: '48px', color: theme.palette.primary}} />
+                },
+                {
+                    name: "AWS",
+                    icon: <BiLogoAws style={{fontSize: '48px', color: theme.palette.primary}} />
+                }
+            ]
+        },
+        {
+            title: "Train GPT",
+            description: "Utilizing many different open source technologies, along with the OpenAI API, I created an application which translates unstructured files to GPT vector embeddings. Once submitted, a similarity search is performed to optimize the context given to the LLM.",
+            git: "Train GPT Repo",
+            repo: "https://github.com/caleblamro/traingpt",
+            restricted: false,
+            skills: [
+                {
+                    name: "ReactJS",
+                    icon: <BiLogoReact style={{fontSize: '48px', color: theme.palette.primary}} />
+                },
+                {
+                    name: "Typescript",
+                    icon: <BiLogoTypescript style={{fontSize: '48px', color: theme.palette.primary}} />
+                },
+                {
+                    name: "SQL",
+                    icon: <TbSql style={{fontSize: '48px', color: theme.palette.primary}} />
+                }
+            ]
+        },
+        {
+            title: "Some Project with Long Title",
+            description: "Some description",
+            git: "URL",
+            restricted: false,
+            skills: [
+                {
+                    name: "Java",
+                    icon: <BiLogoJava style={{fontSize: '48px', color: theme.palette.primary}} />
+                },
+                {
+                    name: "ReactJS",
+                    icon: <BiLogoReact style={{fontSize: '48px', color: theme.palette.primary}} />
+                },
+                
+                {
+                    name: "SQL",
+                    icon: <TbSql style={{fontSize: '48px', color: theme.palette.primary}} />
+                },
+                
+                {
+                    name: "OpenAI",
+                    icon: <RiOpenaiFill style={{fontSize: '48px', color: theme.palette.primary}} />
+                }
+            ]
+        },
+    ]
 
     useEffect(() => {
         setLoading(true);
         axios.get("https://leetcode-stats-api.herokuapp.com/clamorea").then((res) => {
-            console.log(res);
             setLeetCodeData(res.data);
             setLoading(false);
         });
@@ -72,25 +169,37 @@ function App() {
 
     return (
         <ThemeContext.Provider value={theme}>
-            <div className="appContainer">
+            <main className="appContainer">
                 <motion.div {...scaleVariants} className="appContent shadow welcomeContainer" style={{ backgroundColor: theme.palette.accent }}>
                     <Text type={TextType.TITLE} content="Hi!" color={theme.palette.secondary} bold />
                     <TypingText text={`I'm Caleb Lamoreaux, a full stack developer and aspiring data scientist.`} />
                 </motion.div>
                 <div className="appContent shadow" style={{backgroundColor: theme.palette.primary}}>
-                    <Text type={TextType.TITLE} content="My Skills" color={theme.palette.accent} bold />
+                    <Text type={TextType.TITLE} content="Skills" color={theme.palette.accent} bold />
                 </div>
                 <SkillsRadarChart theme={theme} />
                 <div className="appContent shadow special" style={{backgroundColor: theme.palette.accent}}>
                     <Text type={TextType.TITLE} content="Leetcode" color={theme.palette.secondary} bold />
                     <div className="leetcodeData">
-                        <Text type={TextType.BODY} content="Problems Solved:" color={theme.palette.secondary} />
+                        <Text type={TextType.BODY} content="Problems Solved" color={theme.palette.secondary} />
                         {leetCodeData && <LeetCodeChart leetCodeData={leetCodeData} size={200} theme={theme} />}
-                        <Text type={TextType.BODY} content="Activity:" color={theme.palette.secondary} />
+                        <Text type={TextType.BODY} content="Activity " color={theme.palette.secondary} />
                         {leetCodeData && <LeetCodeSubmissionsChart size={400} theme={theme} leetCodeData={leetCodeData} />}
                     </div>
                 </div>
-            </div>
+                <div className="appContent shadow" style={{backgroundColor: theme.palette.primary}}>
+                    <Text type={TextType.TITLE} content="Projects" color={theme.palette.accent} />
+                </div>
+                <div className="projectsContainer">
+                {PROJECTS.map((instance) => (
+                    <ProjectCard {...instance} />
+                ))}
+                </div>
+                <div className="appContent shadow" style={{backgroundColor: theme.palette.accent}}>
+                    <Text type={TextType.TITLE} content="Resources" color={theme.palette.secondary} />
+                    <Resources theme={theme} />
+                </div>
+            </main>
         </ThemeContext.Provider>
     )
 }
