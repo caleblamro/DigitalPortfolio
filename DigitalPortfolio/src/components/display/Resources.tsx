@@ -1,6 +1,8 @@
 import { ConfigProvider, Tabs, TabsProps } from "antd";
 import { Theme } from "../../theme/ThemeContext";
-import { SiLeetcode } from 'react-icons/si';
+import { SiGithub, SiLeetcode, SiLinkedin } from 'react-icons/si';
+import "./Display.css";
+import FilePreview from "./file/FilePreview";
 
 interface ResourcesProps {
     theme: Theme;
@@ -14,6 +16,17 @@ export default function Resources({theme}: ResourcesProps) {
             <a href="https://leetcode.com/clamorea/">
                 <SiLeetcode  style={{fontSize: '48px', color: theme.palette.primary}} />
             </a>
+            <a href="https://www.linkedin.com/in/caleb-lamoreaux/">
+                <SiLinkedin  style={{fontSize: '48px', color: theme.palette.primary}} />
+            </a>
+            <a href="https://github.com/caleblamro">
+                <SiGithub  style={{fontSize: '48px', color: theme.palette.primary}} />
+            </a>
+        </div>
+    )
+
+    const FilesChildren = (
+        <div className="filesGroup">
         </div>
     )
 
@@ -26,12 +39,7 @@ export default function Resources({theme}: ResourcesProps) {
         {
             key: '2',
             label: "Files",
-            children: `Files`,
-        },
-        {
-            key: '3',
-            label: `References`,
-            children: `References`,
+            children: FilesChildren,
         },
     ];
 

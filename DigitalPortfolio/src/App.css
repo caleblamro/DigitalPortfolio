@@ -1,40 +1,60 @@
-.appContainer{
+.appContainer {
     min-height: 100vh;
     padding-top: 40px;
     padding: 30px;
 }
-.appContent{
+
+.appContent {
     margin-top: 20px;
     flex-direction: column;
     display: flex;
     gap: 3px;
     padding: 30px;
 }
-.textCentered{
+
+.textCentered {
     text-align: center;
 }
-.welcomeContainer{
+
+.welcomeContainer {
     margin: 0 auto;
 }
-.shadow{
+
+.shadow {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 2px;
 }
-.peaks{
+
+.peaks {
     margin: 0;
     padding: 0;
     width: 100%;
     object-fit: contain;
 }
-.special{
+
+.special {
     overflow: visible;
 }
-.leetcodeData{
+
+.leetcodeData {
     display: flex;
     flex-direction: column;
 }
-.projectsContainer{
+
+.projectsContainer {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
+}
+
+.bold {
+    font-weight: 800;
+}
+.img{
+    width: 100%;
+}
+.icon-group{
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }

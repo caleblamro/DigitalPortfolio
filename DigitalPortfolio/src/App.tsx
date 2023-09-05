@@ -10,10 +10,10 @@ import LeetCodeSubmissionsChart from './components/display/LeetCodeSubmissionsCh
 // import FadeInOut from './components/animation/FadeInOut';
 import { BiLogoAws, BiLogoJava, BiLogoReact, BiLogoTypescript } from 'react-icons/bi';
 import { TbSql } from 'react-icons/tb'; 
-import { RiOpenaiFill } from 'react-icons/ri';
 import SkillsRadarChart from './components/display/SkillsRadarChart';
 import Resources from './components/display/Resources';
 import ProjectCard from './components/display/ProjectCard';
+import { SiKaggle } from 'react-icons/si';
 
 
 export const ThemeContext = React.createContext<Theme>(tokens(ThemeMode.LIGHT));
@@ -124,32 +124,6 @@ function App() {
                 }
             ]
         },
-        {
-            title: "Some Project with Long Title",
-            description: "Some description",
-            git: "URL",
-            restricted: false,
-            skills: [
-                {
-                    name: "Java",
-                    icon: <BiLogoJava style={{fontSize: '48px', color: theme.palette.primary}} />
-                },
-                {
-                    name: "ReactJS",
-                    icon: <BiLogoReact style={{fontSize: '48px', color: theme.palette.primary}} />
-                },
-                
-                {
-                    name: "SQL",
-                    icon: <TbSql style={{fontSize: '48px', color: theme.palette.primary}} />
-                },
-                
-                {
-                    name: "OpenAI",
-                    icon: <RiOpenaiFill style={{fontSize: '48px', color: theme.palette.primary}} />
-                }
-            ]
-        },
     ]
 
     useEffect(() => {
@@ -187,17 +161,42 @@ function App() {
                         {leetCodeData && <LeetCodeSubmissionsChart size={400} theme={theme} leetCodeData={leetCodeData} />}
                     </div>
                 </div>
-                <div className="appContent shadow" style={{backgroundColor: theme.palette.primary}}>
+                <div className="appContent" style={{backgroundColor: theme.palette.primary}}>
                     <Text type={TextType.TITLE} content="Projects" color={theme.palette.accent} />
                 </div>
                 <div className="projectsContainer">
-                {PROJECTS.map((instance) => (
-                    <ProjectCard {...instance} />
-                ))}
+                    {PROJECTS.map((instance) => (
+                        <div className='container'>
+                            <ProjectCard {...instance} />
+                        </div>
+                    ))}
                 </div>
                 <div className="appContent shadow" style={{backgroundColor: theme.palette.accent}}>
                     <Text type={TextType.TITLE} content="Resources" color={theme.palette.secondary} />
                     <Resources theme={theme} />
+                </div>
+                <div className="appContent shadow" style={{backgroundColor: theme.palette.accent}}>
+                    <Text type={TextType.TITLE} content="Courses" color={theme.palette.secondary} />
+                    <div className="coursesContainer">
+                        <div className="course">
+                            <img className='img' src="/files/Intro-to-Deep-Learning.png" alt="Kaggle certification for introduction to deep learning." />
+                            <div className='icon-group'>
+                                <SiKaggle style={{fontSize: '48px', color: theme.palette.primary}} />
+                                <Text type={TextType.BODY} content="Intro to Deep Learning" color={theme.palette.secondary} />
+                            </div>
+                        </div>
+                        <div className="course">
+                            <img className='img' src="/files/Intro-to-Machine-Learning.png" alt="Kaggle certification for introduction to machine learning." />
+                            <div className='icon-group'>
+                                <SiKaggle style={{fontSize: '48px', color: theme.palette.primary}} />
+                                <Text type={TextType.BODY} content="Intro to Machine Learning" color={theme.palette.secondary} />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div className="appContent shadow" style={{backgroundColor: theme.palette.accent}}>
+                    <Text type={TextType.TITLE} content="Awards" color={theme.palette.secondary} />
+                    
                 </div>
             </main>
         </ThemeContext.Provider>
