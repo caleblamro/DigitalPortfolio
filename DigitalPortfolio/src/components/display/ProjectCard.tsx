@@ -10,12 +10,13 @@ interface ProjectCardProps {
     restricted?: boolean;
     git: string;
     skills: { name: string; icon: React.ReactNode }[];   
+    key: string;
 }
 
-export default function ProjectCard({title, skills, description, git, restricted, repo}: ProjectCardProps) {
+export default function ProjectCard({title, skills, description, git, restricted, repo, key}: ProjectCardProps) {
     const theme = useTheme();
     return(
-        <div className="appContent projectCard shadow" style={{backgroundColor: theme.palette.accent}}>
+        <div key={key} className="appContent projectCard shadow" style={{backgroundColor: theme.palette.accent}}>
             <Text type={TextType.HEADER } bold={true} content={title} color={theme.palette.background} />
             {restricted &&
                 <span className="linkStyle">

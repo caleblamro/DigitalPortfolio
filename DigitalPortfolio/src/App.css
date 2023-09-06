@@ -2,10 +2,12 @@
     min-height: 100vh;
     padding-top: 40px;
     padding: 30px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
 .appContent {
-    margin-top: 20px;
     flex-direction: column;
     display: flex;
     gap: 3px;
@@ -14,10 +16,6 @@
 
 .textCentered {
     text-align: center;
-}
-
-.welcomeContainer {
-    margin: 0 auto;
 }
 
 .shadow {
@@ -44,17 +42,23 @@
 .projectsContainer {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
 }
 
 .bold {
     font-weight: 800;
 }
-.img{
+.group{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: calc(50% - 10px);
+}
+.group.fill{
     width: 100%;
 }
-.icon-group{
-    display: flex;
-    gap: 10px;
-    align-items: center;
+@media screen and (max-width: 900px) {
+    .group{
+        width: 100%;
+    }
 }

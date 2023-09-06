@@ -2,7 +2,8 @@ import { DeleteTwoTone, FileExcelTwoTone, FileImageTwoTone, FileMarkdownTwoTone,
 import "./FileStyle.css";
 import { useEffect } from "react";
 import { useTheme } from "../../../App";
-export default function FilePreview(props: { fileName: string; index: number; backgroundColor: string | undefined; color: string | undefined; animated: boolean }){
+import { BsDownload } from "react-icons/bs";
+export default function FilePreview(props: { fileName: string; index: number; backgroundColor: string | undefined; color: string | undefined; animated: boolean; showDownload: boolean }){
     const theme = useTheme();
     const index = props.fileName.indexOf('.');
     const extension = props.fileName.substring(index + 1);
@@ -48,6 +49,7 @@ export default function FilePreview(props: { fileName: string; index: number; ba
         <div id={`file-preview${props.index}`} style={{backgroundColor: props.backgroundColor, color: props.color}} className="file-preview">
             <div className="file-preview-icon">{getIcon(icons, extension)}</div>
             <div className="text small file-name">{props.fileName.trim()}</div>
+            {props.showDownload && <BsDownload style={{fontSize: '16px', color: theme.palette.secondary}} /> }
         </div>
     );
 }

@@ -19,6 +19,7 @@ export interface TextProps {
     color?: string;
     content?: string;
     className?: string;
+    center?: boolean;
 }
 
 //have some hook like useFontSize(), which will return the correct font size per device width
@@ -56,6 +57,9 @@ export const Text = (props:TextProps) => {
         }
         if(bold) newStyles = mergeStylesInOrder(newStyles, {fontWeight: 600});
         if(italic) newStyles = mergeStylesInOrder(newStyles, {fontStyle: "italic"});
+        if(props.center) {
+            mergeStylesInOrder(newStyles, {textAlign: "center"})
+        }
         setTextStyles(newStyles);
     }
     

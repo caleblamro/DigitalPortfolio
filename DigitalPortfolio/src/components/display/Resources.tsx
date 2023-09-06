@@ -3,6 +3,7 @@ import { Theme } from "../../theme/ThemeContext";
 import { SiGithub, SiLeetcode, SiLinkedin } from 'react-icons/si';
 import "./Display.css";
 import FilePreview from "./file/FilePreview";
+import { BiDownArrow } from "react-icons/bi";
 
 interface ResourcesProps {
     theme: Theme;
@@ -24,9 +25,20 @@ export default function Resources({theme}: ResourcesProps) {
             </a>
         </div>
     )
+    const downloadFile = (path:string, fileName:string) => {
+        const link = document.createElement("a");
+        link.href = path;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    };
 
     const FilesChildren = (
         <div className="filesGroup">
+            <div onClick={() => downloadFile("/files/Resume.pdf", "Resume.pdf")}>
+                <FilePreview fileName={"Resume.pdf"} index={0} backgroundColor={undefined} color={undefined} animated={false} showDownload={true} />
+            </div>
         </div>
     )
 
