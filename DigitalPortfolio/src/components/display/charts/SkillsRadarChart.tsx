@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
+import { PureComponent } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
-import "./Display.css";
-import { Theme } from '../../theme/ThemeContext';
+import "./Charts.css";
+import { Theme } from '../../../theme/ThemeContext';
 
 const data = [
     {

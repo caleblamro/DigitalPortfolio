@@ -1,0 +1,74 @@
+.a{
+    text-decoration: none;
+}
+.a:active{
+    outline: none;
+}
+.a:hover{
+    cursor: pointer;
+}
+.card{
+    width: 280px;
+    height: 200px;
+    padding: 50px 30px 30px 30px;
+    
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 10px;
+    transition-duration: 0.2s;
+    border-radius: 2px;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 15px 50px 2px;
+}
+.card:hover{
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+
+.appContent {
+    margin-top: 20px;
+    flex-direction: column;
+    display: flex;
+    gap: 3px;
+    padding: 30px;
+}
+.projectCard {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    height: 290px;
+    gap: 10px;
+    transition-duration: 0.2s;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 15px 50px 2px;
+}
+.projectCard:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+}
+
+.projectSkills {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.linkStyle {
+    display: flex;
+    width: calc(100% + 20px);
+    margin: 3px 0px;
+    margin-left: -30px;
+    gap: 10px;
+    padding: 5px 10px 5px 30px;
+    background-color: #242931;
+}
+
+.bleed {
+    display: flex;
+    width: calc(100% + 60px);
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #06111a;
+}

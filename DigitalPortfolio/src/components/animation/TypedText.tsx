@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from '../../App';
+import { Text, TextProps } from '../text/Text';
 
 interface TypingTextProps {
     text: string;
+    textProps: TextProps;
 }
 
-const TypingText: React.FC<TypingTextProps> = ({ text }) => {
+const TypingText: React.FC<TypingTextProps> = ({ text, textProps }) => {
     const [visibleText, setVisibleText] = useState('');
     const [index, setIndex] = useState(0);
     const [makingMistake, setMakingMistake] = useState(false);
     const randomIntBetween100and500 = Math.floor(Math.random() * (200 - 100 + 1) + 100);
     const randomIntBetween25and75 = Math.floor(Math.random() * (75 - 25 + 1) + 25);
-    const theme = useTheme();
 
 
     useEffect(() => {
@@ -40,11 +39,7 @@ const TypingText: React.FC<TypingTextProps> = ({ text }) => {
     }, [text, index, makingMistake]);
 
     return (
-        <AnimatePresence>
-            <motion.div>
-                {visibleText}
-            </motion.div>
-        </AnimatePresence>
+        <Text {...textProps} content={visibleText}  />
     );
 };
 

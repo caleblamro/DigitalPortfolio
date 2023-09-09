@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { LeetCodeData } from './LeetCodeChart';
-import { Theme } from '../../theme/ThemeContext';
-import "./Display.css";
+import { Theme } from '../../../theme/ThemeContext';
 import { Select, ConfigProvider, theme } from 'antd';
 const antdTheme = theme;
 import * as dayjs from 'dayjs';
+import "./Charts.css";
 
 interface LeetCodeSubmissionsChartProps {
     leetCodeData: LeetCodeData;
@@ -14,7 +14,7 @@ interface LeetCodeSubmissionsChartProps {
 }
 const monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-const LeetCodeSubmissionsChart: React.FC<LeetCodeSubmissionsChartProps> = ({ leetCodeData, size, theme }) => {
+const LeetCodeSubmissionsChart: React.FC<LeetCodeSubmissionsChartProps> = ({ leetCodeData, theme }) => {
 
     const [availableMonths, setAvailableMonths] = useState<string[]>([]);
     const [selectedMonth, setSelectedMonth] = useState<string>('');

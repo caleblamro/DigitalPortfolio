@@ -1,64 +1,88 @@
 .appContainer {
-    min-height: 100vh;
-    padding-top: 40px;
-    padding: 30px;
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.appContent {
-    flex-direction: column;
-    display: flex;
-    gap: 3px;
-    padding: 30px;
-}
-
-.textCentered {
-    text-align: center;
-}
-
-.shadow {
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    border-radius: 2px;
-}
-
-.peaks {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    object-fit: contain;
-}
-
-.special {
-    overflow: visible;
-}
-
-.leetcodeData {
+    position: relative;
+    padding: 250px 21.64502165% 350px;
     display: flex;
     flex-direction: column;
+    gap: 250px;
 }
 
-.projectsContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.bold {
-    font-weight: 800;
-}
-.group{
+.heroContentContainer {
+    width: 500px;
     display: flex;
     flex-direction: column;
     gap: 20px;
-    width: calc(50% - 10px);
 }
-.group.fill{
-    width: 100%;
+
+.group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-@media screen and (max-width: 900px) {
-    .group{
-        width: 100%;
+
+.divider {
+    width: 60px;
+    height: 3px;
+}
+
+.skillsHeaderContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.projectsContainer{
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 60px;
+}
+.skillsContainer {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 60px;
+}
+.staticAnimationContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media (min-width: 1050px) {
+    .skillsContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .projectsContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 1400px) {
+    .appContainer {
+        padding: 250px 100px;
+    }
+}
+@media (min-width: 2100px) {
+    .skillsContainer {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .projectsContainer {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 767px) {
+    .appContainer{
+        gap: 150px;
+    }
+    .center{
+        justify-content: center;
+    }
+}
+@media (max-width: 590px) {
+    .appContainer{
+        padding: 250px 30px 350px;
+    }
+}
+@media (max-width: 500px) {
+    .appContainer{
+        padding: 180px 15px 350px;
+        gap: 120px;
     }
 }

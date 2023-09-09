@@ -1,0 +1,14 @@
+.aboutMeContainer {
+    width: 100%;
+    max-width: 800px;
+    margin-top: -200px;
+    align-self: center;
+}
+.aboutMeAnimationContainer{
+    border-radius: 2px;
+}
+@media (max-width: 600px) {
+    .aboutMeContainer{
+        margin-top: 0px;
+    }
+}

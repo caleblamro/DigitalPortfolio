@@ -1,5 +1,4 @@
-import React, { ReactNode, useState } from 'react';
-import { useTheme } from '../../App';
+import React, { ReactNode } from 'react';
 import { Text, TextProps } from '../text/Text';
 import "./Button.css";
 
@@ -33,16 +32,15 @@ interface ButtonProps {
     onClick?: () => void;
 }
 
-const Button = ({ content, icon, style, onClick, status = Status.UNKNOWN, textProps }: ButtonProps) => {
-    const theme = useTheme();
+const Button = ({ content, icon, style, onClick, textProps }: ButtonProps) => {
 
     return (
-        <div className="button" style={{display: "flex", alignItems: "center", padding: "0 15px", height: 50, borderRadius: 25, ...style }} onClick={onClick}>
+        <button className="button" style={{...style }} onClick={onClick}>
             <div style={{ display: "flex", gap: 10, alignItems: "center", justifyContent: "center" }}>
                 { icon ? icon : null}
                 <Text {...textProps} content={content} />
             </div>
-        </div>
+        </button>
     );
 };
 

@@ -1,0 +1,28 @@
+.nav{
+    position: fixed;
+    height: 80px;
+    display: flex;
+    justify-self: center;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 21.64502165%;
+    width: calc(100% - (21.64502165% * 2));
+    background-color: #ffffff;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+.nav.centered{
+    justify-content: center;
+}
+.navItems{
+    display: flex;
+    gap: 20px;
+}
+@media (max-width: 1400px) {
+    .nav {
+        padding: 0 100px;
+        width: calc(100% - 200px);
+    }
+}

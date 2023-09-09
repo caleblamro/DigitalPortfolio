@@ -6,12 +6,17 @@ import {
     RouterProvider,
 } from "react-router-dom";
 import "./index.css";
+import { Text } from './components/text/Text.tsx';
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
     },
+    {
+        path: "*",
+        element: <Text content="ErrorPage" />
+    }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(

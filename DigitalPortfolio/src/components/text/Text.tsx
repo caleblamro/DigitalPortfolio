@@ -21,55 +21,49 @@ export interface TextProps {
     className?: string;
     center?: boolean;
 }
-
-//have some hook like useFontSize(), which will return the correct font size per device width
-export const Text = (props:TextProps) => {
+const mergeStylesInOrder = (previousStyles: React.CSSProperties, newStyles: React.CSSProperties): React.CSSProperties => {
+    return { ...previousStyles, ...newStyles };
+}
+export const Text = (props: TextProps) => {
     const theme = useTheme();
-    const {type=TextType.BODY, bold=false, italic=false, style={}, color=theme.palette.text, content="", className} = props;
-    const defaultStyles:React.CSSProperties = {fontSize: "1rem", fontWeight: 400};
-    const [textStyles, setTextStyles] = useState(defaultStyles);
+    const { type = TextType.BODY, bold = false, italic = false, style = {}, color = theme.palette.text, content = "", className, center = false } = props;
 
-    const mergeStylesInOrder = (previousStyles:React.CSSProperties, newStyles:React.CSSProperties):React.CSSProperties => {
-        return {...previousStyles, ...newStyles};
-    }
+    const [textStyles, setTextStyles] = useState<React.CSSProperties>({});
 
-    const updateTextStyles = () => {
-        let newStyles = {...defaultStyles, ...textStyles};
-        switch(type){
+    useEffect(() => {
+        let newStyles: React.CSSProperties = { fontSize: "1rem", fontWeight: 400 };
+
+        switch (type) {
             case TextType.TITLE:
-                newStyles = mergeStylesInOrder(newStyles, {fontSize: "2.5rem", fontWeight: 600});
+                newStyles = mergeStylesInOrder(newStyles, { fontSize: "2.5rem", fontWeight: 600 });
                 break;
             case TextType.SUB_TITLE:
-                newStyles = mergeStylesInOrder(newStyles, {fontSize: "1.75rem"});
+                newStyles = mergeStylesInOrder(newStyles, { fontSize: "1.75rem" });
                 break;
             case TextType.HEADER:
-                newStyles = mergeStylesInOrder(newStyles, {fontSize: "1.5rem", fontWeight: 600});
+                newStyles = mergeStylesInOrder(newStyles, { fontSize: "1.5rem", fontWeight: 600 });
                 break;
             case TextType.BODY:
-                newStyles = mergeStylesInOrder(newStyles, {fontSize: "1rem"});
+                newStyles = mergeStylesInOrder(newStyles, { fontSize: "1rem" });
                 break;
             case TextType.SUB_BODY:
-                newStyles = mergeStylesInOrder(newStyles, {fontSize: "0.875rem"});
+                newStyles = mergeStylesInOrder(newStyles, { fontSize: "0.875rem" });
                 break;
             case TextType.SUB_TEXT:
-                newStyles = mergeStylesInOrder(newStyles, {fontSize: "0.75rem"});
+                newStyles = mergeStylesInOrder(newStyles, { fontSize: "0.75rem" });
                 break;
         }
-        if(bold) newStyles = mergeStylesInOrder(newStyles, {fontWeight: 600});
-        if(italic) newStyles = mergeStylesInOrder(newStyles, {fontStyle: "italic"});
-        if(props.center) {
-            mergeStylesInOrder(newStyles, {textAlign: "center"})
-        }
-        setTextStyles(newStyles);
-    }
-    
-    useEffect(() => {
-        updateTextStyles();
-    }, [props]);
 
-    return(
-        <p className={className?`text ${className}`:"text"} style={{...textStyles, ...style, color: color, margin: 0, wordWrap: "break-word", ...{ ...props.style }}}>
+        if (bold) newStyles.fontWeight = 600;
+        if (italic) newStyles.fontStyle = "italic";
+        if (center) newStyles.textAlign = "center";
+
+        setTextStyles(newStyles);
+    }, [type, bold, italic, center]);
+
+    return (
+        <p className={className ? `text ${className}` : "text"} style={{ ...textStyles, color, margin: 0, wordWrap: "break-word", ...style }}>
             {content}
         </p>
-    )
-}
+    );
+};

@@ -1,0 +1,39 @@
+.stepContainer {
+    margin-top: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    width: 50px;
+}
+.centerSteps{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.center
+.circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid black;
+    transition-duration: 0.2s;
+}
+.circle:hover{
+    cursor: pointer;
+    fill: #8fbcbb !important;
+}
+
+.filled {
+    background-color: black;
+}
+
+.unfilled {
+    background-color: white;
+}
+
+.connector {
+    width: 1px;
+    height: 40px;
+}

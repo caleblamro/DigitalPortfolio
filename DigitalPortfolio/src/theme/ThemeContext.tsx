@@ -45,7 +45,7 @@ export const Colors = {
 
 const DarkPalette:Palette = {
     text: "#5E81AC",
-    background: "#2E3440",
+    background: "#2f2f4f8",
     primary: "#8FBCBB",
     secondary: "#D8DEE9",
     accent: "#26374b",
@@ -59,11 +59,11 @@ const DarkPalette:Palette = {
     }
 }
 const LightPalette:Palette = {
-    text: "#2E3440",
-    background: "#D8DEE9",
-    primary: "#8FBCBB",
-    secondary: "#fcfcfd",
-    accent: "#26374b",
+    text: "#4c566a",
+    background: "#f2f4f8",
+    primary: "#8fbcbb",
+    secondary: "#ffffff",
+    accent: "#434c5e",
     alert: {
         success: Colors.Nord14,
         error: Colors.Nord11,
@@ -78,61 +78,3 @@ export const tokens = (mode:ThemeMode):Theme => ({
     mode: mode,
     palette: (mode === ThemeMode.LIGHT) ? LightPalette : DarkPalette,
 });
-/*
-export const tokens = (mode:ThemeMode) => ({
-    mode: mode,
-    palette: (mode === ThemeMode.LIGHT) ? {
-        text: {
-            default: Colors.Nord0,
-            secondary: Colors.Nord1,
-            tertiary: Colors.Nord2,
-            special: Colors.Nord3,
-            highlight: Colors.Nord5
-        },
-        area: {
-            default: Colors.Nord6,
-            secondary: Colors.Nord4
-        },
-        component: {
-            default: Colors.Nord9,
-            secondary: Colors.Nord7,
-            tertiary: Colors.Nord8,
-            special: Colors.Nord10
-        },
-        alert: {
-            success: Colors.Nord14,
-            error: Colors.Nord11,
-            lowError: Colors.Nord12,
-            info: Colors.Nord10,
-            warning: Colors.Nord13,
-            special: Colors.Nord15
-        }
-    } : {
-        text: {
-            default: Colors.Nord4,
-            secondary: Colors.Nord5,
-            tertiary: Colors.Nord5,
-            special: Colors.Nord6,
-            highlight: Colors.Nord6
-        },
-        area: {
-            default: Colors.Nord0,
-            secondary: Colors.Nord1
-        },
-        component: {
-            default: Colors.Nord9,
-            secondary: Colors.Nord7,
-            tertiary: Colors.Nord8,
-            special: Colors.Nord10
-        },
-        alert: {
-            success: Colors.Nord14,
-            error: Colors.Nord11,
-            lowError: Colors.Nord12,
-            info: Colors.Nord10,
-            warning: Colors.Nord13,
-            special: Colors.Nord15
-        }
-    }
-} as Theme);
-*/
