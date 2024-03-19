@@ -204,9 +204,13 @@ function App() {
         }
     }, [theme]);
 
-
-    useEffect(() => {
-    }, []);
+    // const urls = [
+    //     "face.svg",
+    //     "apple.svg",
+    //     "amazon.svg",
+    //     "netflix.svg",
+    //     "google.svg",
+    // ];
     return (
         <ThemeContext.Provider value={theme}>
             <main className="appContainer" style={{ backgroundColor: theme.palette.background }}>
